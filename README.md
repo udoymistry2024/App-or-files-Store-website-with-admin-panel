@@ -2,8 +2,6 @@
 
 A full-featured, dynamic app store web application powered by PHP and MySQL. This project includes a user-friendly frontend and a powerful admin panel that allows for the management of nearly all website content and settings. It serves as an ideal platform for hosting and distributing games, software, or any type of digital file.
 
-![App Store Screenshot]([https://i.ibb.co/yBNt8d2/app-store-home.png](https://ibb.co.com/VYGC5GBK))
-
 ---
 
 ## 🌟 Key Features
@@ -66,7 +64,7 @@ Follow these steps to set up the project on your local machine or a live server.
 **1. Download Project Files:**
    Clone this repository or download it as a ZIP file.
    ```bash
-   git clone https://github.com/your-username/simple-app-store.git
+   git clone https://github.com/udoymistry2024/App-or-files-Store-website-with-admin-panel.git
    ```
    Place the files in a new folder (e.g., `app-store`) inside your web server's root directory (`htdocs` for XAMPP).
 
