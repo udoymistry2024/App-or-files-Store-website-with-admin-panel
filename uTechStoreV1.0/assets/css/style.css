@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #ffffff;
+    --text-color: #e0e0e0; /* এই রঙটি আমরা ব্যবহার করব */
+    --bg-color-1: #1a1a2e;
+    --bg-color-2: #16213e;
+    --accent-color-1: #0f3460;
+    --accent-color-2: #e94560;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Poppins', sans-serif; color: var(--text-color); background-color: var(--bg-color-1); overflow-x: hidden; -webkit-user-select: none; -ms-user-select: none; user-select: none; display: flex; flex-direction: column; min-height: 100vh; }
+.background-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradientAnimation 15s ease infinite; }
+@keyframes gradientAnimation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; flex-grow: 1; }
+header { text-align: center; margin-bottom: 40px; }
+header h1 { font-size: 3rem; font-weight: 700; color: var(--primary-color); text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); margin-bottom: 20px; }
+.search-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; }
+.search-bar-logo { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); height: 30px; width: 30px; border-radius: 50%; object-fit: cover; z-index: 2; }
+#searchInput { width: 100%; padding: 15px 20px 15px 55px; border: none; border-radius: 50px; background-color: rgba(255, 255, 255, 0.1); color: var(--primary-color); font-size: 1rem; backdrop-filter: blur(10px); outline: none; transition: all 0.3s ease; }
+#searchInput::placeholder { color: rgba(255, 255, 255, 0.7); }
+#searchInput:focus { background-color: rgba(255, 255, 255, 0.2); box-shadow: 0 0 15px rgba(233, 69, 96, 0.5); }
+nav#categoryTabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; }
+.tab { padding: 10px 25px; background-color: rgba(255, 255, 255, 0.1); color: var(--primary-color); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50px; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(5px); }
+.tab:hover, .tab.active { background-color: var(--accent-color-2); border-color: var(--accent-color-2); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4); }
+main#appGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; }
+.app-card { background-color: rgba(255, 255, 255, 0.08); border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.app-card:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
+.app-card img { width: 100%; height: 150px; object-fit: cover; }
+.app-card .app-info { padding: 15px; }
+.app-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--primary-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); }
+.modal-content { background-color: var(--bg-color-2); margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 800px; position: relative; animation: fadeIn 0.5s; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+.close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+#modalBody h2 { color: var(--accent-color-2); margin-bottom: 20px; }
+
+/* --- এখানে টেক্সটের রঙ পরিবর্তন করা হয়েছে --- */
+#modalBody .description-text {
+    margin-bottom: 10px; /* নিচের স্পেস কমানো হয়েছে */
+    line-height: 1.6;
+    color: var(--text-color); /* কালো রঙের পরিবর্তে থিমের রঙ ব্যবহার করা হয়েছে */
+}
+.image-gallery { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; }
+.image-gallery img { width: 200px; height: 120px; object-fit: cover; border-radius: 10px; }
+.video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 20px; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; }
+.download-button { display: inline-block; padding: 12px 30px; background-color: var(--accent-color-2); color: var(--primary-color); text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; margin-top: 20px; }
+.download-button:hover { background-color: #d63c56; transform: scale(1.05); }
+
+/* --- নতুন "Show More" স্টাইল যোগ করা হয়েছে --- */
+.description-text {
+    max-height: 100px; /* প্রাথমিকভাবে ডেসক্রিপশনের সর্বোচ্চ উচ্চতা */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+.description-text.expanded {
+    max-height: 1000px; /* এক্সপান্ড করার পর সর্বোচ্চ উচ্চতা */
+}
+.toggle-description-btn {
+    background: none;
+    border: none;
+    color: var(--accent-color-2);
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 0;
+    display: none; /* প্রাথমিকভাবে বাটন লুকানো থাকবে */
+}
+
+.site-footer { background-color: rgba(15, 52, 96, 0.3); backdrop-filter: blur(10px); color: var(--text-color); padding: 40px 20px; margin-top: auto; text-align: center; }
+.footer-container { max-width: 1200px; margin: 0 auto; }
+.contact-info h3 { margin-bottom: 20px; font-size: 1.5rem; }
+.contact-info ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.contact-info a { color: var(--text-color); text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
+.contact-info a:hover { color: var(--accent-color-2); }
+.contact-info i { margin-right: 8px; }
+.copyright-info { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; }
+.whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 100; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.3s ease; }
+.whatsapp-float:hover { transform: scale(1.1); }
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5rem; }
+    main#appGrid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+    .contact-info ul { flex-direction: column; gap: 15px; }
+    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
+}
+@media (max-width: 480px) {
+    body { padding-bottom: 0; }
+    .container { padding: 10px; }
+    header h1 { font-size: 2rem; }
+    .tab { padding: 8px 18px; font-size: 0.9rem; }
+    main#appGrid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .app-card img { height: 120px; }
+    .modal-content { width: 95%; padding: 20px; margin-top: 10%; }
+}

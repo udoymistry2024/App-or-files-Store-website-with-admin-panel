@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --bg-dark: #2c3e50;
+    --bg-light: #34495e;
+    --primary: #3498db;
+    --text-color: #ecf0f1;
+    --border-color: #4a627a;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --warning-bg: rgba(241, 196, 15, 0.1);
+    --warning-text: #f1c40f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+}
+
+/* Login Page & Shared Form Styles */
+.login-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;}
+.login-form { background-color: var(--bg-light); padding: 40px; border-radius: 8px; width: 100%; max-width: 450px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.login-form h2 { text-align: center; margin-bottom: 25px; }
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+.input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; background-color: var(--bg-dark); color: var(--text-color); font-size: 1rem; }
+button { width: 100%; padding: 12px; border: none; border-radius: 5px; background-color: var(--primary); color: white; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; }
+button:hover { background-color: #2980b9; }
+
+.error { color: var(--danger); background-color: rgba(231, 76, 60, 0.1); padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; }
+.message { background-color: var(--success); color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+
+.back-link { display: block; text-align: center; margin-top: 20px; color: var(--primary); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+/* Security Code Page */
+.warning { padding: 15px; background-color: var(--warning-bg); border-left: 4px solid var(--warning-text); color: var(--warning-text); margin-bottom: 20px;}
+.code-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+.code-list code { background-color: var(--bg-dark); padding: 10px 15px; border-radius: 5px; font-size: 1.2rem; font-weight: 700; }
+.button-link { display: block; text-align: center; background: var(--success); color: white; padding: 12px; border-radius: 5px; text-decoration: none; }
+
+/* Admin Panel Layout */
+.admin-container { display: flex; }
+.sidebar { width: 250px; background-color: var(--bg-light); min-height: 100vh; padding: 20px; position: fixed; }
+.sidebar h3 { text-align: center; margin-bottom: 30px; font-size: 1.5rem; }
+.sidebar nav a { display: block; color: var(--text-color); text-decoration: none; padding: 15px; border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease; }
+.sidebar nav a:hover, .sidebar nav a.active { background-color: var(--primary); }
+.content { flex-grow: 1; padding: 30px; margin-left: 250px; }
+.content h1 { border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+
+/* Dashboard Stats */
+.dashboard-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.stat-card { background: var(--bg-light); padding: 25px; border-radius: 8px; text-align: center; }
+.stat-card h2 { font-size: 2.5rem; margin: 0; }
+.stat-card p { margin: 5px 0 0; color: #bdc3c7; }
+
+/* Card Style for Forms/Tables */
+.card { background-color: var(--bg-light); padding: 25px; border-radius: 8px; margin-bottom: 30px; }
+.card h2 { margin-top: 0; }
+.app-form .cancel-edit { display: inline-block; width: 100%; text-align: center; margin-top: 10px; background: #95a5a6; padding: 12px; border-radius: 5px; color: white; text-decoration: none; }
+
+/* Table Styles */
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border-color); }
+thead { background-color: var(--bg-dark); }
+.actions a { color: var(--primary); text-decoration: none; font-weight: 500; margin-right: 15px; }
+.actions a:last-child { color: var(--danger); }
+.actions a:hover { text-decoration: underline; }
+
+/* Invitation Code Display */
+.new-code-info { margin-top: 20px; }
+.new-code-info input { width: 100%; background: var(--bg-dark); color: #fff; padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; }
+
+@media (max-width: 768px) {
+    .admin-container { flex-direction: column; }
+    .sidebar { width: 100%; min-height: auto; position: static; }
+    .content { margin-left: 0; }
+}
+
+/* --- Progress Bar Styles (Append at the end) --- */
+.progress-bar-container {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: var(--bg-dark);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary);
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-bar-text {
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* For message styling */
+#responseMessage {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: block;
+}
+#responseMessage.message { background-color: var(--success); color: white; }
+#responseMessage.error { background-color: rgba(231, 76, 60, 0.5); color: white; }
+#responseMessage:empty { display: none; }
+
+/* --- Icon Finder Button Styles (Append at the end) --- */
+.icon-finder-btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.icon-finder-btn:hover {
+    background-color: #2980b9;
+    color: white;
+}
