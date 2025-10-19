@@ -2,7 +2,7 @@
 
 A full-featured, dynamic app store web application powered by PHP and MySQL. This project includes a user-friendly frontend and a powerful admin panel that allows for the management of nearly all website content and settings. It serves as an ideal platform for hosting and distributing games, software, or any type of digital file.
 
-![App Store Screenshot]([https://i.ibb.co/yBNt8d2/app-store-home.png](https://ibb.co.com/VYGC5GBK))
+![App Store Screenshot](https://i.ibb.co/yBNt8d2/app-store-home.png)
 *(Feel free to replace this with a screenshot of your own website. The image above is just an example.)*
 
 ---
@@ -143,8 +143,7 @@ To bypass server upload limits on free hosting or other restricted environments,
 |   |-- images/
 |
 |-- index.php               # Main app store homepage
-|-- README.md               # This file
-```
+|-- README.md               # This file```
 
 ---
 
